@@ -17,3 +17,8 @@
 ### devops:
 <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> 
 <a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a>
+
+## Analysis
+
+<a href="" target="_blank" rel="noreferrer"> <img src="https://github-readme-stats.vercel.app/api?username=atopx&show_icons=true&include_all_commits=true" alt="docker" height="120"/> </a> 
+<a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atopx&layout=compact" alt="kubernetes" height="120"/> </a>
