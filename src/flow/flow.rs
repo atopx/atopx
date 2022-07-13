@@ -3,7 +3,7 @@ use std::io::Error;
 use std::process::Command;
 
 pub struct Flow {
-    pub exec_dir: String,
+    exec_dir: String,
 }
 
 impl Flow {
