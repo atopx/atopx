@@ -1,23 +1,68 @@
 use crate::flow::Flow;
-use clap::Parser;
+use crate::osp::Osp;
+use clap::{Parser, Subcommand};
+use std::env;
 
 mod flow;
+mod osp;
 
-/// StarUnion related tools.
-#[derive(Parser, Debug)]
+#[derive(Subcommand)]
+enum Commands {
+    /// opeation related flow.
+    Flow {
+        /// label in [qa, ]
+        #[clap(value_parser)]
+        label: String,
+    },
+
+    /// os related commands.
+    OS {
+
+        /// lsof -i tcp:[port]
+        #[clap(long, value_parser)]
+        fpo: Option<u16>,
+
+        /// ps -ef | grep [process]
+        #[clap(long, value_parser)]
+        fps: Option<String>
+    }
+}
+
+
+/// atopx private cli tools.
+#[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
+#[clap(propagate_version = true)]
 struct Args {
-    /// Run related commoands of code.
-    #[clap(short, long, value_parser)]
-    flow: String,
+    /// atopx subcommands
+    #[clap(subcommand)]
+    command: Commands,
 }
 
 fn main() {
     let args = Args::parse();
-    if args.flow == "qa" {
-        let flow = Flow::new("/Users/atopx/workspace/star_union_advertiser_api");
-        flow.qa();
-    } else {
-        println!("unknown command, please run [./staru --help].");
+
+    match &args.command {
+        Commands::Flow { label } => {
+            let flower = Flow::new(env::current_dir().unwrap().to_str().expect("get current dir error."));
+            match label.as_str() {
+                "qa" => {
+                    flower.qa();
+                }
+                _ => {
+                    println!("unknown flow label: {}, please run atopx --help", label)
+                }
+            }
+            
+        }
+        Commands::OS { fpo, fps } => {
+            let osp = Osp::new(env::current_dir().unwrap().to_str().expect("get current dir error."));
+            if let Some(value) = fpo {
+                osp.lsof_tcp(value);
+            }
+            if let Some(value) = fps {
+                osp.ps_grep(value);
+            }
+        }
     }
 }
