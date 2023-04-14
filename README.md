@@ -19,4 +19,4 @@
 
 ## Analysis
 
-<a href="https://github.com/atopx" target="_blank" rel="noreferrer"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atopx&layout=compact" alt="Top Language" height="220"/> </a>
+<a href="https://github.com/atopx" target="_blank" rel="noreferrer"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atopx&layout=compact&hide=vue,html,scss" alt="Top Language"/> </a>
